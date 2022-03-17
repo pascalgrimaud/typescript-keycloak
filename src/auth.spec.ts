@@ -4,24 +4,25 @@ describe('Keycloak', () => {
   it('Should get token from Keycloak', async () => {
     const headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*',
     };
-    const credentials = {
-      username: 'admin',
-      password: 'admin',
-      client_id: 'web_app',
-      grant_type: 'password',
-    };
+    const params = new URLSearchParams();
+    params.append('username', 'admin');
+    params.append('password', 'admin');
+    params.append('client_id', 'web_app');
+    params.append('grant_type', 'password');
 
-    const result = await axios.post('http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token', credentials, { headers });
-    console.log(result);
+    const result = await axios.post('http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token', params, { headers });
 
-    expect(result).not.toBeNull();
+    const token = result.data.access_token;
+    console.log(token);
+
+    expect(token).not.toBeNull();
   });
 });
 
 /*
 curl -X POST "http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token" \
+ -H 'Content-Type: application/x-www-form-urlencoded' \
  -d 'username=admin' \
  -d 'password=admin' \
  -d 'client_id=web_app' \
