@@ -10,15 +10,19 @@
     "prepare": "husky install",
     "prettier:check": "prettier --check \"{,src/**/}*.{md,json,yml,html,js,ts,tsx,css,scss,vue,java,xml}\"",
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,js,ts,tsx,css,scss,vue,java,xml}\"",
-    "test": "jest",
+    "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "test:watch:all": "jest --watchAll"
+  },
+  "dependencies": {
+    "axios": "0.26.1"
   },
   "devDependencies": {
     "@prettier/plugin-xml": "1.2.0",
     "@types/jest": "27.4.1",
     "@typescript-eslint/eslint-plugin": "5.15.0",
     "@typescript-eslint/parser": "5.15.0",
+    "cors": "^2.8.5",
     "eslint": "8.11.0",
     "eslint-import-resolver-typescript": "2.5.0",
     "eslint-plugin-import": "2.25.4",

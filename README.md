@@ -15,3 +15,17 @@ npm install
 ```
 
 <!-- jhipster-needle-readme -->
+
+### Steps
+
+Start Keycloak:
+
+```
+docker-compose -f src/main/docker/keycloak.yml up -d
+```
+
+Launch tests:
+
+```
+npm test
+```
